@@ -15,6 +15,14 @@ export default defineNuxtConfig({
     icons: {
       scale: 1.2,
     },
+    theme: {
+      colors: {
+        fractional: {
+          green: '#aaed4a',
+        },
+      },
+    },
+
     shortcuts: [
       [
         'btn',
