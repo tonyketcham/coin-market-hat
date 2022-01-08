@@ -1,28 +1,39 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxi build",
-    "dev": "nuxi dev",
-    "start": "node .output/server/index.mjs"
-  },
-  "dependencies": {
-    "pinia": "^2.0.9"
-  },
-  "devDependencies": {
-    "@antfu/eslint-config": "^0.14.2",
-    "@iconify-json/carbon": "^1.0.12",
-    "@iconify-json/twemoji": "^1.0.2",
-    "@pinia/nuxt": "^0.1.8",
-    "@unocss/nuxt": "^0.20.1",
-    "@vueuse/nuxt": "^7.4.2",
-    "eslint": "^8.5.0",
-    "nuxt3": "latest",
-    "typescript": "^4.5.4"
-  },
-  "pnpm": {
-    "overrides": {
-      "@nuxt/kit": "npm:@nuxt/kit-edge@latest",
-      "@nuxt/kit-edge": "latest"
-    }
-  }
+	"author": {
+		"name": "Tony Ketcham",
+		"email": "tony@karmalies.studio"
+	},
+	"private": true,
+	"scripts": {
+		"build": "nuxi build",
+		"dev": "nuxi dev",
+		"format": "eslint --fix '**/*.{js,vue}'",
+		"start": "node .output/server/index.mjs"
+	},
+	"dependencies": {
+		"pinia": "^2.0.9"
+	},
+	"devDependencies": {
+		"@iconify-json/carbon": "^1.0.12",
+		"@iconify-json/twemoji": "^1.0.2",
+		"@nuxtjs/eslint-config-typescript": "^8.0.0",
+		"@pinia/nuxt": "^0.1.8",
+		"@unocss/nuxt": "^0.20.1",
+		"@vueuse/nuxt": "^7.4.2",
+		"eslint": "^8.6.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-nuxt": "^3.1.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-vue": "^8.2.0",
+		"nuxt3": "latest",
+		"postcss": "^8.4.5",
+		"prettier": "^2.5.1",
+		"typescript": "^4.5.4"
+	},
+	"pnpm": {
+		"overrides": {
+			"@nuxt/kit": "npm:@nuxt/kit-edge@latest",
+			"@nuxt/kit-edge": "latest"
+		}
+	}
 }
