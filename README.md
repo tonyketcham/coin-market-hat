@@ -1,5 +1,7 @@
 # CoinMarketHat
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c3435894-930d-4188-9eb9-7047c2754e32/deploy-status)](https://app.netlify.com/sites/coin-market-hat/deploys)
+
 The coin market monitor that doesn't cap.
 
 ## Features
@@ -19,6 +21,8 @@ The coin market monitor that doesn't cap.
 - 🦾 TypeScript
 
 - 🔍 Fast fuzzy search (by coin name and symbol) via [Fuze.js](https://fusejs.io/) for great search UX
+
+- ⚖️ Sorting by all visible coin fields
 
 ## Plugins
 
