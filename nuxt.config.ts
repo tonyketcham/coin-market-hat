@@ -2,7 +2,7 @@ import { defineNuxtConfig } from 'nuxt3';
 
 export default defineNuxtConfig({
   meta: {
-    title: 'CoinMarketHat',
+    icon: 'public/CoinMarketHat.png',
   },
   buildModules: ['@vueuse/nuxt', '@unocss/nuxt', '@pinia/nuxt'],
   vueuse: {

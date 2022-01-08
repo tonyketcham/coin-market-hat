@@ -1,4 +1,6 @@
 {
+  "name": "coin-market-hat",
+  "description": "The coin market monitor that doesn't cap. An accessible, modern take on a crypto market tracker.",
   "author": {
     "name": "Tony Ketcham",
     "email": "tony@karmalies.studio"
