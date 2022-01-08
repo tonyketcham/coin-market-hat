@@ -12,11 +12,11 @@
           <button
             class="flex my-auto mr-0.5 focus:outline-current focus:opacity-100 hover:opacity-80 transition-opacity duration-200"
             :class="[
-              isCoinFavorited(interactions, coin.id)
+              interactions.isCoinFavorited(coin.id)
                 ? 'i-carbon-star-filled opacity-100 text-yellow-400 focus:opacity-60'
                 : 'i-carbon-star opacity-30',
             ]"
-            @click="toggleCoinFavorite(interactions, coin.id)"
+            @click="interactions.toggleCoinFavorite(coin.id)"
           >
             <span class="sr-only">star</span>
           </button>
@@ -64,7 +64,6 @@
 <script setup lang="ts">
   import { useCoinStore } from '@/stores/coins';
   import { useInteractionStore } from '@/stores/interactions';
-  import { isCoinFavorited, toggleCoinFavorite } from '@/composables/favorite';
   import { priceFormatter } from '@/composables/formatters';
 
   const coins = useCoinStore();
