@@ -16,7 +16,7 @@
         <Meta property="og:type" content="website" />
         <Meta property="og:url" content="https://coin-market-hat.netlify.app/" />
         <Link rel="canonical" href="https://coin-market-hat.netlify.app/" />
-        <Link rel="icon" href="public/CoinMarketHat.png" />
+        <Link rel="icon" href="CoinMarketHat.png" />
       </Head>
     </Html>
     <Header />
