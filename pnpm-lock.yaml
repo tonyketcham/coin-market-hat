@@ -16,6 +16,7 @@ specifiers:
   eslint-plugin-nuxt: ^3.1.0
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^8.2.0
+  fuse.js: ^6.5.3
   nuxt3: latest
   pinia: ^2.0.9
   postcss: ^8.4.5
@@ -37,6 +38,7 @@ devDependencies:
   eslint-plugin-nuxt: 3.1.0_eslint@8.6.0
   eslint-plugin-prettier: 4.0.0_1c588f61426b1faf18812943f1678311
   eslint-plugin-vue: 8.2.0_eslint@8.6.0
+  fuse.js: 6.5.3
   nuxt3: 3.0.0-27356801.e9128f3_postcss@8.4.5
   postcss: 8.4.5
   prettier: 2.5.1
@@ -3645,6 +3647,11 @@ packages:
 
   /functional-red-black-tree/1.0.1:
     resolution: {integrity: sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=}
+    dev: true
+
+  /fuse.js/6.5.3:
+    resolution: {integrity: sha512-sA5etGE7yD/pOqivZRBvUBd/NaL2sjAu6QuSaFoe1H2BrJSkH/T/UXAJ8CdXdw7DvY3Hs8CXKYkDWX7RiP5KOg==}
+    engines: {node: '>=10'}
     dev: true
 
   /gauge/2.7.4:
