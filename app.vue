@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="relative">
     <Header />
 
-    <main id="content" class="max-w-screen-2xl mx-auto p-10 pb-0 text-center">
+    <main id="content" class="px-3 lg:px-10 mx-auto text-center w-screen mt-22">
       <NuxtPage />
     </main>
 

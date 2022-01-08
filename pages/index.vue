@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <Suspense>
-      <CoinTable />
-      <template #fallback>
-        <div class="opacity-50 italic">
-          <span class="animate-pulse">Loading...</span>
-        </div>
-      </template>
-    </Suspense>
+  <div class="w-full">
+    <CoinTable />
   </div>
 </template>
 

@@ -1,9 +1,11 @@
 <template>
-  <thead class="relative sticky top-22 text-sm header-grill backdrop-blur-[3px] z-10">
+  <thead class="sticky top-22 text-sm header-grill backdrop-blur-[3px] z-10">
     <th
       v-for="column of tableHeaders"
       :key="column.title"
       :title="column.tip ? column.tip as string : ''"
+      scope="col"
+      :aria-sort="getAriaSort(column)"
     >
       <button
         class="flex place-items-center"
@@ -22,7 +24,7 @@
           </span>
         </template>
 
-        <span class="block">
+        <span class="block font-bold">
           {{ column.title }}
         </span>
       </button>
@@ -95,5 +97,18 @@
     if (column.unsortable || !column.field) return;
     interactions.coinSortField = column.field;
     interactions.coinSortAscending = !interactions.coinSortAscending;
+  }
+
+  /**
+   * Get the aria-sort value for the given column.
+   * @param column column to get aria sort value for
+   */
+  function getAriaSort(column: TableColumn) {
+    if (column.unsortable || !column.field) return 'none';
+    return interactions.coinSortField === column.field
+      ? interactions.coinSortAscending
+        ? 'ascending'
+        : 'descending'
+      : 'none';
   }
 </script>

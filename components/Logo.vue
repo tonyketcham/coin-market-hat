@@ -8,6 +8,8 @@
       class="i-carbon-direct-link text-3xl mx-3 my-auto motion-safe:transition-transform-300 transform hover:rotate-135"
       dark="text-fractional-green"
     />
-    <span class="block my-auto">CoinMarketHat<sup>🧢</sup></span>
+    <span class="block my-auto"
+      >CoinMarketHat<sup class="filter -hue-rotate-135 inline-block">🧢</sup></span
+    >
   </nuxt-link>
 </template>

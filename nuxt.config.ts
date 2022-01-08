@@ -25,8 +25,8 @@ export default defineNuxtConfig({
 
     shortcuts: [
       [
-        'btn',
-        'px-4 py-1 rounded inline-block bg-teal-600 text-white cursor-pointer hover:bg-teal-700 disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50',
+        'standard-input',
+        'flex place-items-center bg-gray-100 dark:bg-true-gray-900 px-3 rounded-md border border-gray-200 dark:border-true-gray-800 border-opacity-5',
       ],
     ],
   },

@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c3435894-930d-4188-9eb9-7047c2754e32/deploy-status)](https://app.netlify.com/sites/coin-market-hat/deploys)
 
-The coin market monitor that doesn't cap.
+The coin market monitor that doesn't cap. An accessible, modern take on a crypto market tracker.
 
 ## Features
 
@@ -24,7 +24,9 @@ The coin market monitor that doesn't cap.
 
 - ⚖️ Sorting by all visible coin fields
 
-## Plugins
+- 🦮 Built with accessiblity and mobile experiences in mind
+
+- ☀️ Light and dark themes
 
 ### Nuxt Modules
 
