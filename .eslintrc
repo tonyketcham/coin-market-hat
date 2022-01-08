@@ -10,14 +10,6 @@
 			{
 				"ignores": ["Footer", "Logo"]
 			}
-		],
-		"vue/script-indent": [
-			"error",
-			"tab",
-			{
-				"baseIndent": 1,
-				"switchCase": 1
-			}
 		]
 	}
 }
