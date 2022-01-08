@@ -4,10 +4,27 @@
       v-for="column of tableHeaders"
       :key="column.title"
       :title="column.tip ? column.tip as string : ''"
-      :class="{ 'text-left': column.align === 'left', 'sr-only': column.isLabelSrOnly }"
     >
-      <button @click="sort(column)">
-        {{ column.title }}
+      <button
+        class="flex place-items-center"
+        :class="{
+          'flex-row-reverse': column.align === 'left',
+          'ml-auto': column.align === 'right',
+          'sr-only': column.isLabelSrOnly,
+        }"
+        @click="sort(column)"
+      >
+        <template v-if="column.field === interactions.coinSortField">
+          <span
+            class="i-carbon-play-filled-alt inline-block text-current transform scale-60"
+            :class="[interactions.coinSortAscending ? '-rotate-90' : 'rotate-90']"
+          >
+          </span>
+        </template>
+
+        <span class="block">
+          {{ column.title }}
+        </span>
       </button>
     </th>
   </thead>
@@ -77,5 +94,6 @@
   function sort(column: TableColumn) {
     if (column.unsortable || !column.field) return;
     interactions.coinSortField = column.field;
+    interactions.coinSortAscending = !interactions.coinSortAscending;
   }
 </script>

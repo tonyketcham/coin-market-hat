@@ -1,5 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia';
 import Fuse from 'fuse.js';
+import { sortBy } from '@/composables/sortBy';
 import { useInteractionStore } from '@/stores/interactions';
 
 import type { Coin } from '@/types';
@@ -47,8 +48,8 @@ export const useCoinStore = defineStore('coins', {
      * Restores the state of the coin store from localStorage.
      */
     restoreState() {
-      console.log(JSON.parse(localStorage.getItem('coins-list')));
-      console.log(Date.parse(localStorage.getItem('last-updated')));
+      // console.log(JSON.parse(localStorage.getItem('coins-list')));
+      // console.log(Date.parse(localStorage.getItem('last-updated')));
     },
 
     /**
@@ -61,6 +62,10 @@ export const useCoinStore = defineStore('coins', {
     },
   },
   getters: {
+    /**
+     * Filters the coin list by search input.
+     * @returns search-filtered coin list
+     */
     searchList(state): Coin[] {
       const interactions = useInteractionStore();
       const { coinSearch } = interactions;
@@ -73,13 +78,23 @@ export const useCoinStore = defineStore('coins', {
 
       return fuse.search(coinSearch).map((result) => result.item);
     },
+    /**
+     * Filters the coin list by user preference on sorting field and direction + search.
+     * @returns search-filtered & sorted list of coins
+     */
     filteredList(): Coin[] {
       const interactions = useInteractionStore();
-      const { coinSortField } = interactions;
+      const { coinSortField, coinSortAscending } = interactions;
 
       if (!coinSortField) return this.searchList;
 
-      return this.searchList.sort((a: Coin, b: Coin) => a[coinSortField] - b[coinSortField]);
+      const clone = [...this.searchList] as Coin[];
+
+      sortBy(coinSortField, clone);
+
+      if (!coinSortAscending) clone.reverse();
+
+      return clone;
     },
   },
 });

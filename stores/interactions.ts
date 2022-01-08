@@ -4,7 +4,8 @@ export const useInteractionStore = defineStore('interactions', {
   state: () => ({
     coinSearch: '',
     favoriteCoins: [],
-    coinSortField: '',
+    coinSortField: 'market_cap_rank',
+    coinSortAscending: true,
   }),
   actions: {
     addFavoriteCoin(coinID: string) {
