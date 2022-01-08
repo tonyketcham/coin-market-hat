@@ -1,24 +1,22 @@
-import { useInteractionStore } from '@/stores/interactions';
-
-const interactions = useInteractionStore();
-
 /**
  * Check if a coin is favorited.
  *
+ * @todo Figure out Pinia/TS type inference for a store implementation.
  * @param id coin ID
  * @returns true, if coin is favorited
  */
-export function isCoinFavorited(id: string) {
+export function isCoinFavorited(interactions: any, id: string) {
   return interactions.favoriteCoins.includes(id);
 }
 
 /**
  * Toggle a coin as a favorite.
  *
+ * @todo Figure out Pinia/TS type inference for a store implementation.
  * @param id coin ID
  */
-export function toggleCoinFavorite(id: string) {
-  if (isCoinFavorited(id)) {
+export function toggleCoinFavorite(interactions: any, id: string) {
+  if (isCoinFavorited(interactions.favoriteCoins, id)) {
     interactions.removeFavoriteCoin(id);
   } else {
     interactions.addFavoriteCoin(id);
