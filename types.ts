@@ -1,3 +1,6 @@
+/**
+ * Schema of coins retrieved from the CoinGecko API.
+ */
 export interface Coin {
   id: string;
   name: string;
@@ -22,6 +25,18 @@ export interface Coin {
   atl: number;
   atl_change_percentage: number;
   atl_date: string;
-  roi: null;
+  roi: unknown;
   last_updated: string;
+}
+
+/**
+ * The coin table column definition shape.
+ */
+export interface TableColumn {
+  title: string;
+  field?: string;
+  align: 'left' | 'right';
+  isLabelSrOnly?: boolean;
+  tip?: string;
+  unsortable?: boolean;
 }
