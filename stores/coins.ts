@@ -1,11 +1,11 @@
 import { acceptHMRUpdate, defineStore } from 'pinia';
-import { useStorage } from '@vueuse/core';
+import { useLocalStorage } from '@vueuse/core';
 
 export const useCoinStore = defineStore('coins', () => {
   /**
    * Current coin list.
    */
-  let coins = useStorage('coins', []);
+  let list = useLocalStorage('coins-list', []);
   /**
    * Awaiting CoinGecko API fetch.
    */
@@ -14,24 +14,24 @@ export const useCoinStore = defineStore('coins', () => {
    * Contains any errors that occur during the CoinGecko API fetch.
    */
   const error = ref('');
-  /**
-   * When the coin store was last updated.
-   */
-  let lastUpdated = useStorage('last-updated', Date.now());
 
   /**
    * Fetches & overwrites the current coin list w/ top 100 coins.
    */
-  async function fetchTop100() {
+  async function fetchTop100(lastUpdated: number) {
     isLoading.value = true;
+
+    restoreState();
+
+    if (!needsRefresh(lastUpdated) && list.value) return;
 
     try {
       const response = await fetch(
         'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&limit=100'
       );
       const data = await response.json();
-      coins.value = data;
-      lastUpdated.value = Date.now();
+      list.value = data;
+      localStorage.setItem('last-updated', String(Date.now()));
     } catch (e) {
       error.value = e;
     }
@@ -39,12 +39,28 @@ export const useCoinStore = defineStore('coins', () => {
     isLoading.value = false;
   }
 
+  /**
+   * Restores the state of the coin store from localStorage.
+   */
+  function restoreState() {
+    console.log(JSON.parse(localStorage.getItem('coins-list')));
+    console.log(Date.parse(localStorage.getItem('last-updated')));
+  }
+
+  /**
+   * Check if the coin store needs to be refreshed.
+   * @param timeToStale the time in milliseconds to wait before refreshing the coin list
+   * @returns true if the coin store needs to be refreshed
+   */
+  function needsRefresh(lastUpdated: number, timeToStale: number = 120000) {
+    return Date.now() - lastUpdated > timeToStale;
+  }
+
   return {
-    coins,
+    list,
     fetchTop100,
     isLoading,
     error,
-    lastUpdated,
   };
 });
 
