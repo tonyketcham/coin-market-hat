@@ -1,13 +1,11 @@
 <script setup lang="ts">
-  const { data } = await useFetch('/api/pageview');
+  // import { useTimeAgo } from '@vueuse/core';
 
-  const time = useTimeAgo(computed(() => data.value.startAt));
+  // const time = useTimeAgo(
+  //   computed(() => Number(localStorage.getItem('last-updated')))
+  // );
 </script>
 
 <template>
-  <div text-gray:80>
-    <span font-500 text-gray>{{ data.pageview }}</span>
-    page views since
-    <span text-gray>{{ time }}</span>
-  </div>
+  <div class="opacity-60">Last updated: time</div>
 </template>

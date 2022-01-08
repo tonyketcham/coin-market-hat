@@ -1,11 +1,12 @@
 <template>
-  <div text="xl gray4" m-5 flex justify-center gap-3>
-    <NuxtLink i-carbon-campsite to="/" />
+  <div class="flex justify-center place-items-center space-x-1.5 opacity-60 py-10">
+    <span class="text-sm font-normal"
+      >built with 🍵 by <a href="https://t-o-n-y.netlify.app" target="__blank">Tony</a></span
+    >
     <a
-      i-carbon-logo-github
-      href="https://github.com/antfu/vitesse-nuxt3"
+      class="i-carbon-logo-github"
+      href="https://github.com/tonyketcham/coin-market-hat"
       target="__blank"
     />
-    <DarkToggle />
   </div>
 </template>

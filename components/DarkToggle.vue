@@ -6,7 +6,7 @@
 </script>
 
 <template>
-  <button class="!outline-none" @click="toggleDark()">
+  <button class="focus:outline-black" dark="focus:outline-white" @click="toggleDark()">
     <div class="dark:i-carbon-moon i-carbon-sun" />
   </button>
 </template>
