@@ -1,9 +1,23 @@
 <template>
   <nav class="flex space-x-2">
     <button
-      class="standard-input bg-gradient-to-br from-transparent to-gray-200 dark:to-true-gray-800"
+      class="standard-input bg-gradient-to-br from-transparent to-gray-200 dark:to-true-gray-800 transition-colors duration-100"
+      :class="[
+        interactions.coinWatchlist
+          ? 'text-black dark:text-white'
+          : 'text-gray-700 dark:text-gray-400',
+      ]"
+      @click="interactions.toggleWatchlist()"
     >
-      <span class="i-carbon-star mr-1.5 inline-block"></span> Watchlist
+      <span
+        class="mr-1.5 inline-block"
+        :class="[
+          interactions.coinWatchlist
+            ? 'i-carbon-star-filled text-yellow-400'
+            : 'i-carbon-star text-black dark:text-white',
+        ]"
+      ></span>
+      Watchlist
     </button>
     <form
       class="relative standard-input bg-gradient-to-bl from-transparent to-gray-200 dark:to-true-gray-800"

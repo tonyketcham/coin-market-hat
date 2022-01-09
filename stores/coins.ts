@@ -89,14 +89,23 @@ export const useCoinStore = defineStore('coins', {
      */
     filteredList(): Coin[] {
       const interactions = useInteractionStore();
-      const { coinSortField, coinSortAscending } = interactions;
+      const { coinSortField, coinSortAscending, coinWatchlist, isCoinFavorited } = interactions;
 
+      // Short circuit if something funky happens
       if (!coinSortField) return this.searchList;
 
-      const clone = [...this.searchList] as Coin[];
+      // Make a clone so we don't nuke the original list
+      let clone = [...this.searchList] as Coin[];
 
+      // Filter by user favorites
+      if (coinWatchlist) {
+        clone = clone.filter((coin) => isCoinFavorited(coin.id));
+      }
+
+      // Sort the damn thing
       sortBy(coinSortField, clone);
 
+      // Continue this game of Bop-It with a reverse
       if (!coinSortAscending) clone.reverse();
 
       return clone;

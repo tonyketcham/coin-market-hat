@@ -6,6 +6,7 @@ export const useInteractionStore = defineStore('interactions', {
     favoriteCoins: [] as string[],
     coinSortField: 'market_cap_rank',
     coinSortAscending: true,
+    coinWatchlist: false,
   }),
   actions: {
     toggleCoinFavorite(coinID: string) {
@@ -20,6 +21,9 @@ export const useInteractionStore = defineStore('interactions', {
     },
     removeFavoriteCoin(coinID: string) {
       this.favoriteCoins.splice(this.favoriteCoins.indexOf(coinID), 1);
+    },
+    toggleWatchlist() {
+      this.coinWatchlist = !this.coinWatchlist;
     },
   },
   getters: {

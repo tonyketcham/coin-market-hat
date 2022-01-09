@@ -36,7 +36,7 @@ export default defineNuxtConfig({
     shortcuts: [
       [
         'standard-input',
-        'flex place-items-center bg-gray-100 dark:bg-true-gray-900 px-3 rounded-md border border-gray-200 dark:border-true-gray-800 border-opacity-5',
+        'flex place-items-center bg-gray-100 dark:bg-true-gray-900 px-3 rounded-md border border-gray-200 dark:border-true-gray-800 border-opacity-5 hover:bg-gray-200 dark:hover:bg-true-gray-800',
       ],
     ],
   },

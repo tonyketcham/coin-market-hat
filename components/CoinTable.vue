@@ -31,7 +31,7 @@
           </td>
         </tr>
       </template>
-      <template v-else>
+      <template v-else-if="coins.filteredList.length > 0">
         <tr
           v-for="coin of coins.filteredList"
           :key="coin.id"
@@ -86,6 +86,13 @@
           <td>{{ priceFormatter(coin.ath) }}</td>
           <td>{{ priceFormatter(coin.market_cap) }}</td>
           <td>{{ priceFormatter(coin.total_volume) }}</td>
+        </tr>
+      </template>
+      <template v-else>
+        <tr class="h-32">
+          <td colspan="8" class="p-10 text-true-gray-500 text-center">
+            🧙 No coins found, try somethin different!
+          </td>
         </tr>
       </template>
     </tbody>
