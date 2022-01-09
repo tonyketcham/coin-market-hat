@@ -58,7 +58,7 @@
             <img
               :src="coin.image"
               :alt="`${coin.name} logo`"
-              class="w-6 h-6 shadow-white"
+              class="w-6 h-6 shadow-white object-cover"
               style="filter: drop-shadow(0 0 1px var(--strong-compliment))"
             />
             <span>{{ coin.name }} </span>
