@@ -35,8 +35,8 @@
         <tr
           v-for="coin of coins.filteredList"
           :key="coin.id"
-          class="group children:py-6 border-b border-gray-100 hover:children:bg-[#0e0e0e] hover:border-fractional-green"
-          dark="border-true-gray-900"
+          class="group children:py-6 border-b border-gray-100 hover:children:bg-gray-50 hover:border-true-gray-200"
+          dark="border-true-gray-900 hover:children:bg-[#0e0e0e] hover:border-fractional-green"
         >
           <td class="sticky left-0 px-2 text-left">
             <button
