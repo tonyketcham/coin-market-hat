@@ -6,9 +6,11 @@
     "email": "tony@karmalies.studio"
   },
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "nuxi build",
     "dev": "nuxi dev",
+    "build": "nuxi build",
+    "build:PWA": "node scripts/buildPWA.js",
     "format": "eslint --fix '**/*.{js,vue}'",
     "start": "node .output/server/index.mjs"
   },
@@ -27,11 +29,13 @@
     "eslint-plugin-nuxt": "^3.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.2.0",
+    "esno": "^0.13.0",
     "fuse.js": "^6.5.3",
     "nuxt3": "latest",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "vite-plugin-pwa": "^0.11.12"
   },
   "pnpm": {
     "overrides": {

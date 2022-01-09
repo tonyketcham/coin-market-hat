@@ -16,13 +16,12 @@
         <Meta property="og:type" content="website" />
         <Meta property="og:url" content="https://coin-market-hat.netlify.app/" />
         <Link rel="canonical" href="https://coin-market-hat.netlify.app/" />
-        <Link rel="icon" href="CoinMarketHat.png" />
       </Head>
     </Html>
     <Header />
 
     <main id="content" class="relative px-3 lg:px-10 mx-auto text-center w-screen mt-22">
-      <ErrorToast v-if="coins.error" :error="coins.error" />
+      <ErrorToast v-if="coins.error || !isOnline" :error="coins.error || `Oops, you're offline!`" />
       <NuxtPage />
     </main>
 
@@ -31,9 +30,11 @@
 </template>
 
 <script setup lang="ts">
+  import { useOnline } from '@vueuse/core';
   import { useCoinStore } from '@/stores/coins';
 
   const coins = useCoinStore();
+  const isOnline = useOnline();
 </script>
 
 <style>
