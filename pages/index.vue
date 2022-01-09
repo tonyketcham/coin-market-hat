@@ -5,12 +5,19 @@
 </template>
 
 <script setup lang="ts">
+  import { useIntervalFn } from '@vueuse/core';
   import { useCoinStore } from '@/stores/coins';
 
   const coins = useCoinStore();
 
   onMounted(() => {
-    coins.fetchTop100(0);
+    // Initial fetch of coin list with loading indicator
+    coins.initCoinList();
+
+    useIntervalFn(() => {
+      // Trigger an update to the coin list every 10 seconds
+      coins.fetchCoinList();
+    }, 10000);
   });
 
   coins.$subscribe((_, state) => {

@@ -1,11 +1,12 @@
 <script setup lang="ts">
-  // import { useTimeAgo } from '@vueuse/core';
+  import { useTimeAgo } from '@vueuse/core';
+  import { useCoinStore } from '@/stores/coins';
 
-  // const time = useTimeAgo(
-  //   computed(() => Number(localStorage.getItem('last-updated')))
-  // );
+  const coins = useCoinStore();
+
+  const time = useTimeAgo(computed(() => Number(coins.lastUpdated)));
 </script>
 
 <template>
-  <div class="opacity-60">Last updated: time</div>
+  <div class="text-sm opacity-40">Last updated: {{ time }}</div>
 </template>

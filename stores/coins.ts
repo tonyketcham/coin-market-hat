@@ -19,30 +19,34 @@ export const useCoinStore = defineStore('coins', {
      * Contains any errors that occur during the CoinGecko API fetch.
      */
     error: '',
+    /**
+     * When the coins list was last updated.
+     */
+    lastUpdated: null as number | null,
   }),
   actions: {
+    async initCoinList() {
+      this.isLoading = true;
+      // this.restoreState();
+      // if (this.lastUpdated && !this.needsRefresh(this.lastUpdated) && this.list) return;
+      await this.fetchCoinList();
+      this.isLoading = false;
+    },
     /**
      * Fetches & overwrites the current coin list w/ top 100 coins.
      */
-    async fetchTop100(lastUpdated: number) {
-      this.isLoading = true;
-
-      this.restoreState();
-
-      if (!this.needsRefresh(lastUpdated) && this.list) return;
-
+    async fetchCoinList() {
       try {
         const response = await fetch(
           'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&limit=100'
         );
         const data = await response.json();
         this.list = data;
-        // localStorage.setItem('last-updated', String(Date.now()));
+        this.lastUpdated = Date.now();
+        localStorage.setItem('last-updated', this.lastUpdated.toString());
       } catch (e) {
         this.error = e;
       }
-
-      this.isLoading = false;
     },
     /**
      * Restores the state of the coin store from localStorage.

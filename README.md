@@ -10,13 +10,13 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 
 - ⚡️ Vite - Instant HMR
 
-- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant, on-demand, atomic CSS engine.
+- 🎨 [UnoCSS](https://github.com/antfu/unocss) - The instant, on-demand, atomic CSS engine
 
 - 😃 Use icons from any icon sets in pure CSS, powered by [UnoCSS](https://github.com/antfu/unocss)
 
 - 🍍 [State Management via Pinia](https://pinia.esm.dev/)
 
-- 📥 APIs auto importing - for Composition API, VueUse and custom composables.
+- 📥 APIs auto importing - for Composition API, VueUse and custom composables
 
 - 🦾 TypeScript
 
@@ -27,6 +27,8 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 - 🦮 Built with accessiblity and mobile experiences in mind
 
 - ☀️ Light and dark themes
+
+- Automatic polling for market updates
 
 ### Nuxt Modules
 
