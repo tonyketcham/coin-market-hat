@@ -1,5 +1,5 @@
 const pwaConfiguration = {
-  srcDir: 'src/server-middleware',
+  srcDir: 'server-middleware',
   filename: 'sw.js',
   includeManifestIcons: false,
   includeAssets: [
