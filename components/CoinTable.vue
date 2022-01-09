@@ -5,7 +5,7 @@
     class="relative w-full min-w-screen-md text-right box-border border-collapse"
   >
     <caption id="semantic_elements_table_desc" class="sr-only">
-      Track the 100 cryptocurrencies
+      Track the top-performing 100 cryptocurrencies.
     </caption>
     <colgroup>
       <col style="width: 50px; min-width: auto; max-width: auto" />

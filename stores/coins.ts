@@ -41,11 +41,12 @@ export const useCoinStore = defineStore('coins', {
           'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&limit=100'
         );
         const data = await response.json();
+        if (!data) throw new Error('No data returned from CoinGecko API.');
         this.list = data;
         this.lastUpdated = Date.now();
         localStorage.setItem('last-updated', this.lastUpdated.toString());
       } catch (e) {
-        this.error = e;
+        this.error = e.message;
       }
     },
     /**

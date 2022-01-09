@@ -21,13 +21,20 @@
     </Html>
     <Header />
 
-    <main id="content" class="px-3 lg:px-10 mx-auto text-center w-screen mt-22">
+    <main id="content" class="relative px-3 lg:px-10 mx-auto text-center w-screen mt-22">
+      <ErrorToast v-if="coins.error" :error="coins.error" />
       <NuxtPage />
     </main>
 
     <Footer />
   </div>
 </template>
+
+<script setup lang="ts">
+  import { useCoinStore } from '@/stores/coins';
+
+  const coins = useCoinStore();
+</script>
 
 <style>
   @import '~/styles/main.css';
