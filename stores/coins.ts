@@ -79,6 +79,7 @@ export const useCoinStore = defineStore('coins', {
 
       const fuse = new Fuse(state.list, {
         keys: ['name', 'symbol'],
+        threshold: 0.1,
       });
 
       return fuse.search(coinSearch).map((result) => result.item);
