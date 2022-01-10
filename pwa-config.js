@@ -62,7 +62,7 @@ const pwaConfigurationGenerator = (
   newPwaConfiguration.manifest['description'] = siteDescription;
 
   if (build) {
-    // newPwaConfiguration.workbox.globDirectory = '**/.output/public/';
+    newPwaConfiguration.workbox.globDirectory = '.output/public/';
     newPwaConfiguration.outDir = '.output/public/_nuxt/';
     pages &&
       (newPwaConfiguration.workbox.additionalManifestEntries = pages.reduce((acc, me) => {

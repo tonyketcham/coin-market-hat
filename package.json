@@ -9,7 +9,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxi dev",
-    "build": "nuxi build && pnpm build:pwa",
+    "build": "nuxi build",
     "build:pwa": "node scripts/buildPWA.js",
     "format": "eslint --fix '**/*.{js,vue}'",
     "start": "node .output/server/index.mjs"
