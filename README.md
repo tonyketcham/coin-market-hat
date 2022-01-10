@@ -28,7 +28,11 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 
 - ☀️ Light and dark themes
 
-- Automatic polling for market updates
+- 🚎 Automatic polling for market updates
+
+- 🌐 Works offline, damn near has full PWA support
+  - waiting on Nuxt 3 to fix their `nitro: {preset: 'worker'}` for a native Nuxt PWA
+  - manually implemented via Vite-PWA and workbox which nearly works but has a couple small blockers I'm trying to iron out
 
 ### Nuxt Modules
 
