@@ -24,6 +24,20 @@ export const useInteractionStore = defineStore('interactions', {
     },
     toggleWatchlist() {
       this.coinWatchlist = !this.coinWatchlist;
+      localStorage.setItem('coin-watch-list', this.coinWatchlist.toString());
+    },
+    /**
+     * Restores the state of user interactions from localStorage.
+     */
+    restoreInteractions() {
+      const { coinSearch, favoriteCoins, coinSortField, coinSortAscending, coinWatchlist } =
+        JSON.parse(localStorage.getItem('interactions'));
+
+      this.coinSearch = coinSearch ?? '';
+      this.favoriteCoins = favoriteCoins ?? [];
+      this.coinSortField = coinSortField ?? 'market_cap_rank';
+      this.coinSortAscending = coinSortAscending ?? true;
+      this.coinWatchlist = coinWatchlist ?? false;
     },
   },
   getters: {

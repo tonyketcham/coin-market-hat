@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { acceptHMRUpdate, defineStore } from 'pinia';
 import Fuse from 'fuse.js';
 import { sortBy } from '@/composables/sortBy';
@@ -25,11 +26,16 @@ export const useCoinStore = defineStore('coins', {
     lastUpdated: null as number | null,
   }),
   actions: {
-    async initCoinList() {
+    async initCoinList(fromSource: 'backup' | 'fetch' = 'fetch') {
       this.isLoading = true;
-      // this.restoreState();
-      // if (this.lastUpdated && !this.needsRefresh(this.lastUpdated) && this.list) return;
-      await this.fetchCoinList();
+
+      if (fromSource === 'backup') {
+        this.restoreCoinList();
+        console.log('Coin list restored from backup.');
+      } else {
+        await this.fetchCoinList();
+        console.log('Coin list fetched from CoinGecko.');
+      }
       this.isLoading = false;
     },
     /**
@@ -42,28 +48,27 @@ export const useCoinStore = defineStore('coins', {
         );
         const data = await response.json();
         if (!data) throw new Error('No data returned from CoinGecko API.');
+
         this.list = data;
         this.lastUpdated = Date.now();
+
         localStorage.setItem('last-updated', this.lastUpdated.toString());
+        localStorage.setItem('coins-list', JSON.stringify(this.list));
       } catch (e) {
         this.error = e.message;
       }
     },
     /**
-     * Restores the state of the coin store from localStorage.
+     * Restores the state of the last update to the coin store from localStorage.
      */
-    restoreState() {
-      // console.log(JSON.parse(localStorage.getItem('coins-list')));
-      // console.log(Date.parse(localStorage.getItem('last-updated')));
+    restoreLastUpdated() {
+      this.lastUpdated = JSON.parse(localStorage.getItem('last-updated'));
     },
-
     /**
-     * Check if the coin store needs to be refreshed.
-     * @param timeToStale the time in milliseconds to wait before refreshing the coin list
-     * @returns true if the coin store needs to be refreshed
+     * Restores the state of the coin list from localStorage.
      */
-    needsRefresh(lastUpdated: number, timeToStale: number = 120000) {
-      return Date.now() - lastUpdated > timeToStale;
+    restoreCoinList() {
+      this.list = JSON.parse(localStorage.getItem('coins-list'));
     },
   },
   getters: {
@@ -79,7 +84,7 @@ export const useCoinStore = defineStore('coins', {
 
       const fuse = new Fuse(state.list, {
         keys: ['name', 'symbol'],
-        threshold: 0.1,
+        threshold: 0.3,
       });
 
       return fuse.search(coinSearch).map((result) => result.item);
@@ -110,6 +115,13 @@ export const useCoinStore = defineStore('coins', {
       if (!coinSortAscending) clone.reverse();
 
       return clone;
+    },
+    /**
+     * Check if the coin store needs to be refreshed.
+     * @returns true if the coin store needs to be refreshed
+     */
+    needsRefresh() {
+      return Date.now() - this.lastUpdated > 120000;
     },
   },
 });

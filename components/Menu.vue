@@ -25,7 +25,7 @@
       @submit.prevent="blur()"
     >
       <span class="i-carbon-search mr-3" />
-      <label for="search" class="sr-only">Search</label>
+      <label for="search" class="sr-only">Search cryptocurrencies</label>
       <input
         id="search"
         ref="searchInput"
