@@ -55,6 +55,8 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 
 - 🍍 [Pinia](https://pinia.esm.dev/) - flux state management for application data flow that's easily testable and follows structure
 
+- 😼 [Peeky](https://peeky.dev) - fast unit testing framework with first-class support for Vite + TypeScript
+
 - [ESLint](https://eslint.org/) for logical linting not caught by TypeScript/VS Code
 
 - [Prettier](https://prettier.io/) for syntax style linting to enforce consistency

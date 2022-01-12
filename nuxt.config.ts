@@ -46,5 +46,10 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [VitePWA(pwaConfigGen(false, undefined))],
+    // @ts-ignore Peeky config
+    test: {
+      // Use the DOM environment for all tests by default
+      runtimeEnv: 'dom',
+    },
   },
 });

@@ -12,7 +12,9 @@
     "build": "nuxi build",
     "build:pwa": "node scripts/buildPWA.js",
     "format": "eslint --fix '**/*.{js,vue}'",
-    "start": "node .output/server/index.mjs"
+    "start": "node .output/server/index.mjs",
+    "test:open": "peeky open",
+    "test": "peeky run"
   },
   "dependencies": {
     "pinia": "^2.0.9"
@@ -21,6 +23,7 @@
     "@iconify-json/carbon": "^1.0.12",
     "@iconify-json/twemoji": "^1.0.2",
     "@nuxtjs/eslint-config-typescript": "^8.0.0",
+    "@peeky/test": "^0.10.2",
     "@pinia/nuxt": "^0.1.8",
     "@unocss/nuxt": "^0.20.1",
     "@vueuse/nuxt": "^7.4.2",
@@ -31,7 +34,7 @@
     "eslint-plugin-vue": "^8.2.0",
     "esno": "^0.13.0",
     "fuse.js": "^6.5.3",
-    "nuxt3": "latest",
+    "nuxt3": "3.0.0-27365391.7479eac",
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "typescript": "^4.5.4",

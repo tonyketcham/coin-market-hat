@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 import { acceptHMRUpdate, defineStore } from 'pinia';
 import Fuse from 'fuse.js';
-import { sortBy } from '@/composables/sortBy';
-import { useInteractionStore } from '@/stores/interactions';
+import { sortBy } from '../composables/sortBy';
+import { useInteractionStore } from '../stores/interactions';
 
 import type { Coin } from '@/types';
 

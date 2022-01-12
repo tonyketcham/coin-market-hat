@@ -1,3 +1,7 @@
 {
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": ["vite/client", "@peeky/test"]
+  },
+  "include": ["tests/**/*.test.ts"]
 }
