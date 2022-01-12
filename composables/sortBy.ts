@@ -6,8 +6,13 @@
  */
 export function sortBy<T>(sortBy: string, coins: T[]): void {
   coins.sort((coinA: { [x: string]: any }, coinB: { [x: string]: any }) => {
-    const fieldA = coinA[sortBy];
-    const fieldB = coinB[sortBy];
+    let fieldA = coinA[sortBy];
+    let fieldB = coinB[sortBy];
+
+    if (typeof fieldA === 'string') {
+      fieldA = fieldA.toLowerCase();
+      fieldB = fieldB.toLowerCase();
+    }
 
     if (fieldA < fieldB) {
       return -1;

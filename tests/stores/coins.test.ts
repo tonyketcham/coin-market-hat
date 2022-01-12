@@ -23,6 +23,7 @@ describe('coin list', () => {
     const interactions = useInteractionStore();
 
     interactions.coinSearch = 'ethereum';
+
     const ethereum = coinsListSnapshot[1];
     const ethereumClassic = coinsListSnapshot[42];
 
@@ -37,5 +38,16 @@ describe('coin list', () => {
     const reversedSnapshot = coinsListSnapshot.slice().reverse();
 
     expect(coins.filteredList).toStrictEqual(reversedSnapshot);
+  });
+
+  test('sort by name, ascending', () => {
+    const coins = useCoinStore();
+    const interactions = useInteractionStore();
+
+    interactions.coinSortField = 'name';
+
+    // Expect the first coin to be aave, and the last to be zcash
+    expect(coins.filteredList[0].id).toBe('aave');
+    expect(coins.filteredList[99].id).toBe('zcash');
   });
 });
