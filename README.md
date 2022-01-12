@@ -36,6 +36,8 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 
 - ☀️ Light and dark themes
 
+- Unit tests to provide coverage over functions that alter application state
+
 ## Tech Stack
 
 - [💚 Nuxt 3](https://v3.nuxtjs.org) - Vue 3 w/ composition API, high performance & best practice scores out of the box, first-class TypeScript support, component/API auto-importing, predictable repository structure, Vite, and (generally) better DX over Nuxt 2.
