@@ -35,10 +35,10 @@ jobs:
           registry-url: https://registry.npmjs.org/
           cache: 'pnpm'
 
-      - run: pnpm i -w
+      - run: pnpm i
 
       - name: Build
-        run: pnpm build -w
+        run: pnpm build
 
       - name: Test
-        run: pnpm run test -w
+        run: pnpm run test
