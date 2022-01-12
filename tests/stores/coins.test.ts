@@ -50,4 +50,36 @@ describe('coin list', () => {
     expect(coins.filteredList[0].id).toBe('aave');
     expect(coins.filteredList[99].id).toBe('zcash');
   });
+
+  test('favorite coins in non-linear order then filter by watchlist', () => {
+    const coins = useCoinStore();
+    const interactions = useInteractionStore();
+
+    // Add a few coins to the watchlist
+    for (const coinID of ['basic-attention-token', 'compound-governance-token', 'ethereum']) {
+      interactions.toggleCoinFavorite(coinID);
+    }
+
+    // Now unfavorite and re-favorite eth
+    interactions.toggleCoinFavorite('ethereum');
+    interactions.toggleCoinFavorite('ethereum');
+
+    expect(interactions.isCoinFavorited('ethereum')).toBe(true);
+
+    // Turn on the watchlist
+    interactions.coinWatchlist = true;
+
+    // Expect the coins to follow natural order, only showing the ones we favorited
+    expect(coins.filteredList.map((coin) => coin.id)).toStrictEqual([
+      'ethereum',
+      'basic-attention-token',
+      'compound-governance-token',
+    ]);
+  });
+
+  test('needs refresh if updated longer than 2 minutes ago', () => {
+    const coins = useCoinStore();
+    coins.lastUpdated = new Date('2022-01-10').getTime();
+    expect(coins.needsRefresh).toBe(true);
+  });
 });
