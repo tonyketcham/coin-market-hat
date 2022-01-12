@@ -63,6 +63,8 @@ The coin market monitor that doesn't cap. An accessible, modern take on a crypto
 
 - [Netlify](https://netlify.com/) for free static hosting on a global edge network for fast UX no matter where you are, automatic cache invalidation on iterative releases
 
+- [Github Actions](https://github.com/features/actions) - CI/CD to automate test runners & builds, enforcing standards in the DevOps pipeline
+
 ### Nuxt Modules
 
 - [VueUse](https://github.com/vueuse/vueuse) - collection of useful composition API utilities
