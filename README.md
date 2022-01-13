@@ -105,6 +105,12 @@ Build PWA:
 pnpm build:pwa # Once this works with Netlify's build env, it can be called in `pnpm build`
 ```
 
+Run unit tests:
+
+```bash
+pnpm test
+```
+
 Check that your production build works:
 
 ```bash
